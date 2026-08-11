@@ -1,0 +1,47 @@
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+# Forge 本体
+[[dependencies.${mod_id}]]
+modId="forge"
+mandatory=true
+versionRange="${forge_version_range}"
+ordering="NONE"
+side="BOTH"
+
+# Minecraft
+[[dependencies.${mod_id}]]
+modId="minecraft"
+mandatory=true
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
+
+# LootBeams:没有它本模组无意义,但缺失时不能阻止加载(仅客户端模组)
+[[dependencies.${mod_id}]]
+modId="lootbeams"
+mandatory=false
+ordering="AFTER"
+side="CLIENT"
+
+# Apotheosis:修复目标依赖,缺失时不能阻止加载
+[[dependencies.${mod_id}]]
+modId="apotheosis"
+mandatory=false
+ordering="AFTER"
+side="BOTH"
+
+# Placebo:Apotheosis 的前置,同 Apotheosis
+[[dependencies.${mod_id}]]
+modId="placebo"
+mandatory=false
+ordering="AFTER"
+side="BOTH"
